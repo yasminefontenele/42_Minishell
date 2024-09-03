@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:57:57 by yasmine           #+#    #+#             */
-/*   Updated: 2024/08/21 21:07:53 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:42:16 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ int valid_backslash(char **tokens)
     while(tokens[++i])
     {
         j = -1;
-        q = init_quote();//initialize the quote structure
+        q = quote_init();//initialize the quote structure
         while (tokens[i][++j])
         {
-            if (tokens[i][j] == '\\' && q.double_quote == false) && q.single_quote == false)//if the backslash is not in a quote
+            if ((tokens[i][j] == '\\' && q.double_quote == false) && q.single_quote == false)
                 return (0);
             if (tokens[i][j] == '\'' || tokens[i][j] == '\"')//if the token is a quote
-                q = set_quote_values(tokens[i][j], q);
+                q = quote_value(tokens[i][j], q);
         }
     }
     return (1);

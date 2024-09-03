@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 12:08:44 by yasmine           #+#    #+#             */
-/*   Updated: 2024/08/23 15:29:45 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:34:10 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,7 @@ void    error_command(char *command)
     ft_putstr_fd(RST_COLOR, 2);
 }
 
-int error_redirections(int i, t_execution *execution)
-{
-    int j;
 
-    j = -1;
-    while (execution[i].files[++i])
-    {
-        if (absolute_value(execution[i].files_type[i]) == REDIR_IN && execution[i].file_dscp[i] == -1)
-        {
-            error_file(execution[i].files[i]);
-            return (-1);
-        }
-    }
-    return (0);
-}
 /*
 * Se o file_type não é um dos tipos esperados (FILE, -FILE, HERE_DOC_END, -HERE_DOC_END),
 * ele gera um erro com a mensagem "No redirection File".

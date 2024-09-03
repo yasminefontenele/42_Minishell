@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/02 23:14:20 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 19:24:24 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 * ' ' Everything inside single quotes is treated as literal text, i.e. no special characters are interpreted. e.g. echo 'Hello, $USER', prints 'Hello, $USER'
 * " " Allow a string to contain spaces and preserve most special characters except $, `, and \. e.g. echo "Hello, $USER", prints 'Hello, yasmine'
 */
+
 typedef struct s_quote
 {
 	bool				single_quote;
@@ -142,6 +143,7 @@ int     absolute_value(int nb);
 int     count(char **str);
 int		max_of(int i, int j);
 int		ft_error(char *description, int exit_code);
+void    free_str_array(char **arr);
 void    error_file(char *file);
 int		error_redirection(int file_type);
 void	error_no_such_file(char *command);
@@ -152,6 +154,7 @@ void    join_backslash(char **path);
 char	*format_var(char *var, char *value);
 void	new_var(char *var, char *value);
 void	update_env(char *var, char *value);
+void	append_to_env(char *variable, char *value, int size);
 char    *set_dollar(char *str, int i);
 int     len_dollar(char *str, int i);
 void    dup_array(void);
@@ -165,6 +168,7 @@ int		syntax_redirections(t_tokens *tokens);
 int		syntax_grammar(char **commands, t_tokens *tokens);
 char	*is_builtin(char *command);
 int		count_separator(char *line, char separator);
+int		str_isdigit(char *str);
 t_quote	quote_value(char type_quote, t_quote status_quote);
 t_separator position_separator(char *line, char separator);
 char **separator_split(char *line, int *separatorI, int nbr_separator);

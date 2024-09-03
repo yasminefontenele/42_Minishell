@@ -30,6 +30,7 @@ int count(char **str)
         i++;
     return (i);
 }
+
 int max_of(int i, int j)
 {
     if (i < j)

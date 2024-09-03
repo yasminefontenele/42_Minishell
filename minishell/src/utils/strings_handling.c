@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:31:24 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/02 10:51:54 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 09:38:19 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,23 @@ char **separator_split(char *line, int *separatorI, int nbr_separator)
     }
     content[i] = NULL;
     return (content);
+}
+
+
+int	str_isdigit(char *str)
+{
+	int		i;
+
+	i = 0;
+	if (!(str[i] && (str[i] == '-' || ('0' <= str[i] && str[i] <= '9'))))
+		return (0);
+	while (str[i])
+	{
+		if (!('0' <= str[i] && str[i] <= '9'))
+			return (0);
+        i++;
+	}	
+	return (1);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:14:59 by yasmine           #+#    #+#             */
-/*   Updated: 2024/08/22 11:26:05 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 19:32:31 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ void free_dollar(char **original, char **replacement)
     free(replacement);
     original = NULL;
     replacement = NULL;
+}
+
+void    free_str_array(char **arr)
+{
+    int i;
+    
+    i = 0;
+    while (arr[i])
+    {
+        free(arr[i]);
+        arr[i] = NULL;
+        i++;
+    }
+    free(arr);
 }
 
 /* falta o free_execution para liberar o t_execution*/

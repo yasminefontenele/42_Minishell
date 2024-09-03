@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 10:27:37 by yasmine           #+#    #+#             */
-/*   Updated: 2024/08/22 11:12:25 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/03 19:24:05 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,31 @@ void env_init(char **env)
     }
     g_env.env[i] = NULL;
     sort_array();
+}
+
+//adds a new environment variable to the g_env.env array
+void append_to_env(char *variable, char *value, int size)
+{
+    int i;
+    char	**updated_env;//new_env → updated_env
+	char	*new_env_var;//new_var → new_env_var
+	char	*temp_str;
+
+    i = 0;
+    updated_env = malloc(sizeof(char *) * (size + 2));
+    if (!updated_env)
+        ft_error("malloc failed in append_to_env", 1);
+    while (g_env.env[i])
+    {
+        updated_env[i] = ft_strdup(g_env.env[i]);
+        i++;
+    }
+    temp_str = ft_strjoin(variable, "=");
+    new_env_var = ft_strjoin(temp_str, value);
+    free(temp_str);
+    temp_str = NULL;
+    updated_env[i++] = new_env_var;
+    updated_env[i] = NULL;
+    free_str_array(g_env.env);
+    g_env.env = updated_env;
 }
