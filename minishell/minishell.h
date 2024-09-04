@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 17:17:13 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:54:33 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,18 +126,21 @@ typedef struct s_data
 t_env					g_env;
 
 //BUILTINS
-int		builtin_pwd(int fd);
-void	no_arg_cd(char *oldpwd);
 int		builtin_cd(char **path);
+void	no_arg_cd(char *oldpwd);
+int		builtin_echo(char **args, int *type);
 int		contains_equal(char *str);
 int		builtin_env(void);
-int     builtin_export(char **args, int *type);
-int     export(char **args);
-char    *extract_value(char *arg);
-char    *extract_var(char *arg);
+int     builtin_exit(char **args, int child_process, int count);
 void    print_export(void);
-int		builtin_echo(char **args, int *type);
-
+char    *extract_var(char *arg);
+char    *extract_value(char *arg);
+int     export(char **args);
+int     builtin_export(char **args, int *type);
+int		builtin_pwd(int fd);
+int		find_env_index(char *var);
+int		find_env_index(char *var);
+int		builtin_unset(char **args);
 
 //UTILS
 int     absolute_value(int nb);
@@ -151,6 +154,7 @@ void	error_no_such_file(char *command);
 void    error_command(char *command);
 int		error_redirections(int i, t_execution *execution);
 char    ft_stringjoin(char *str, char c);
+char	*extract_substring(char const *s, unsigned int start, size_t len);
 void    join_backslash(char **path);
 char	*format_var(char *var, char *value);
 void	new_var(char *var, char *value);
@@ -195,10 +199,28 @@ char **arg_add(char *arg, char **arr);
 void	print_invalid_identifier_error(char **args);
 int	is_invalid_identifier(char *arg);
 
-
-
-
 //PARSING
-t_quote quote_init(void);
+t_quote		quote_init(void);
+char    	*find_env_value(char *str, int i);
+void    	process_pipeline(char *line);
+void    	process_command_line(char *line);
+void    	dollar_replace(char **token, int i);
+char    	dollar_spaces_split(char **old, int i);
+void    	arg_type(t_tokens *token, int oldsize, int newsize, int i);
+int			dollar_aux_config(t_tokens *token, int *i, t_data *data);
+t_tokens    dollar_config(t_tokens *token);
+int 		dollar_presence(char *str);
+char		*process_quotes(char *str);
+char		quotes_expand(char *content, int i);
+t_tokens	process_quotes_tokens(t_tokens tokens);
+void		exec_process_quotes(t_tokens *tokens);
+int			type_of_separator(int type_of, char **token);
+void		filler_stokens(char **cmds, t_tokens **token, int nbr);
+int			token_dollar_end(char *str, int i);
+int			token_word_end(char *str, int i);
+int			token_quotes_end(char *str, int i);
+int			token_redir_end(char *str, int i);
+char		*parse_next_token(char *line, int reset);
+
 
 #endif

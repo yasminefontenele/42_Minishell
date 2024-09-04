@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:21:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 17:03:01 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:49:15 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,51 @@ void arg_type(t_tokens *token, int oldsize, int newsize, int i)
 	}
 	free(token->type);
 	token->type = new_type;
+}
+
+int	dollar_aux_config(t_tokens *token, int *i, t_data *data)
+{
+	if ((token->tokens[*i][1] == '$' && *i)
+				|| (*i == 0 && token->tokens[*i][0] == '$'))
+	{
+		dollar_replace(&(token->tokens[*i]), *i);
+		token->tokens = dollar_spaces_split(token->tokens, *i);
+		data->presence = 1;
+		data->newlen = count(token->tokens);
+		if (data->oldlen != data->newlen)
+			arg_type(token, data->oldlen, data->newlen, *i);
+		else if (token->type[*i] < 0)
+			token->type[*i] = -PROTECTED_DOLLAR;
+		else
+			token->type[*i] = PROTECTED_DOLLAR;
+		if (token->type[0] == PROTECTED_DOLLAR || token->type[0] == -PROTECTED_DOLLAR)
+			token->type[*i] = -CMD;
+		(*i) += data->newlen - data->oldlen;
+		data->oldlen = data->newlen;
+		return (1);
+	}
+	return (0);
+}
+
+t_tokens    dollar_config(t_tokens *token)
+{
+    int i;
+    t_data data;
+
+    i = 0;
+    data.oldlen = count(token->tokens);
+    data.newlen = data.oldlen;
+    data.presence = 1;
+    while (data.presence)
+    {
+        data.presence = 0;
+        while (token->tokens[i])
+        {
+            if (dollar_aux_config(token, &i, &data) == 1)
+                break ;
+            i++;
+        }
+        token->nbr = i;
+    }
+    return (*token);
 }

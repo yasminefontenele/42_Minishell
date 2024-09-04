@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:48:35 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:51:02 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:43:58 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 int skip_sapace(char *line, int i)
 {
-    while (line[i] && (line[i] == ' ' || line[i] == '\t'))
-        i++;
-    return (i);
+    while (line[i])
+	{
+		if (line[i] == ' ' || line[i] == '\t')
+			i++;
+		else
+			return (i);
+	}
+	return (i);
 }
 
 
@@ -62,4 +67,23 @@ int count_token(char *line)
             return (count);
     }
     return (count);
+}
+
+char	*extract_substring(char const *s, unsigned int start, size_t len)
+{
+	char			*sub;
+	int				i;
+
+	i = 0;
+	sub = malloc(sizeof(char) * (len - start + 1));
+	if (sub == NULL)
+		ft_error("malloc error in extract_substring", 1);
+	while (start < len)
+	{
+		sub[i] = s[start];
+		i++;
+		start++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }
