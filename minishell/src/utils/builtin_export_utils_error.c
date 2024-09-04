@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export_utils_error.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:21:00 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/02 22:28:36 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/09/04 08:49:45 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 10:27:37 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/03 19:24:05 by yasmine          ###   ########.fr       */
+/*   Created: 2024/09/04 08:50:14 by yfontene          #+#    #+#             */
+/*   Updated: 2024/09/04 08:50:16 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../../minishell.h"
 
