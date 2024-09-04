@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/03 19:24:24 by yasmine          ###   ########.fr       */
+/*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
+/*   Updated: 2024/09/04 17:17:13 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,26 @@
 
 # define MAX_PATH 4096
 
-# define CMD        9001
-# define ARG        9002
-# define REDIR_OUT_SUBS	9003//Output redirection, e.g. '>' | subscribe
-# define REDIR_OUT_ATTACH	9004//Output redirection, e.g. '>>' | attach
-# define REDIR_IN		9005//Input redirection, e.g. '<'
-# define REDIR_DOC		9006//Redirection with special handling that does not apply to simple redirection
-# define FILE		9007//File or directory name (ex.: 'file.txt')
-# define ERROR		9008//Error in the sintaxe
-# define PROTECTED_DOLLAR	9009//protection of strings of environment variables or file names(ex.: $HOME)
-# define PROTECTED_QUOTE	9010// protection of strings or arguments that are enclosed in quotes(ex.:"Hello World")
-# define SKIPED		9011//Skip current token and next token(ex.: '&&' ou '||')
-# define HERE_DOC	9012//Input redirection, ex.: '<<'
-# define HERE_DOC_END   9013//ffinal of heredoc
+# define CMD 3
+# define ARG 4      
+# define REDIR_OUT_SUBS 5//Output redirection, e.g. '>' | subscribe
+# define REDIR_OUT_ATTACH 6//Output redirection, e.g. '>>' | attach
+# define REDIR_IN 7//Input redirection, e.g. '<'
+# define REDIR_DOC 8//Redirection with special handling that does not apply to simple redirection
+# define FILE 9//File or directory name (ex.: 'file.txt')
+# define ERROR 10//Error in the sintaxe
+# define PROTECTED_DOLLAR 11//protection of strings of environment variables or file names(ex.: $HOME)
+# define PROTECTED_QUOTE 12// protection of strings or arguments that are enclosed in quotes(ex.:"Hello World")
+# define SKIPED	13//Skip current token and next token(ex.: '&&' ou '||')
+# define HERE_DOC 14//Input redirection, ex.: '<<'
+# define HERE_DOC_END 15//ffinal of heredoc
 
 /*
-* ' ' Everything inside single quotes is treated as literal text, i.e. no special characters are interpreted. e.g. echo 'Hello, $USER', prints 'Hello, $USER'
-* " " Allow a string to contain spaces and preserve most special characters except $, `, and \. e.g. echo "Hello, $USER", prints 'Hello, yasmine'
+* ' ' Everything inside single quotes is treated as literal text, i.e. no special characters are interpreted.
+* e.g. echo 'Hello, $USER', prints 'Hello, $USER'
+* " " Allow a string to contain spaces and preserve most special characters except $, `, and \.
+* e.g. echo "Hello, $USER", prints 'Hello, yasmine'
 */
-
 typedef struct s_quote
 {
 	bool				single_quote;
@@ -90,14 +91,14 @@ typedef struct s_separator
 
 
 /*
-***** TO DO ******
+													***** TO DO ******
 example of the t_execution structure:
 command: echo "hello" > output.txt
 
 nb_pipelines: 1 (since there are no pipelines)
-args_type: [9001, 9002] (indicating that echo is a CMD and "hello" is an ARG)
-files_type: [9003] (indicating that there is a redirection >)
-fds: [3] (indicating the file descriptor for output.txt)
+args_type: (indicating that echo is a CMD and "hello" is an ARG)
+files_type: (indicating that there is a redirection >)
+file_dscp: [3] (indicating the file descriptor for output.txt)
 args: ["echo", "hello"]
 files: ["output.txt"]
 exec_path: "/bin/echo"

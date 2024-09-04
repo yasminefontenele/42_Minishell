@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:31:24 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:47 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:39:19 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ char **separator_split(char *line, int *separatorI, int nbr_separator)
 {
     int i;
     int j;
-    int len;
     char **content;
 
     content = malloc(sizeof(char *) * (nbr_separator + 2));
@@ -79,17 +78,19 @@ char **separator_split(char *line, int *separatorI, int nbr_separator)
     while (i < nbr_separator + 1)
     {
         if (i == nbr_separator)
-            len = ft_strlen(line) - j;
-        else
-            len = separatorI[i] - j;
-
-        if (extract_substring(content, line, separatorI, i, j, len) < 0)
-            return NULL;
-
+        {
+            i = separatorI[nbr_separator - 1];
+            if (j != 0)
+                i = separatorI[nbr_separator - 1] + 1;
+            content[i] = ft_substr(line, j, ft_strlen(line) - j);
+            break ;
+        }
+        content[i] = ft_substr(line, j, separatorI[i] - j);
+        if (content[i] == NULL)
+            return (NULL);
         j = separatorI[i] + 1;
-        i++;
     }
-    content[i] = NULL;
+    content[nbr_separator + 1] = NULL;
     return (content);
 }
 
