@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:58:01 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:51:25 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:11:01 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RETURN(255) -> This will be used when the process executing the builtin_exit is 
 int     builtin_exit(char **args, int child_process, int count)
 {
     count = 0;
-    while(args[count])
+    while (args[count])
         count++;
     if (args == NULL)
         exit(0);//exit(0) is equivalent to return 0 from main

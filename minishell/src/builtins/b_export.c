@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:41:20 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:51:30 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:44:33 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char    *extract_var(char *arg)
 
 char    *extract_value(char *arg)
 {
-    int i;
-    char *value;
+    int     i;
+    char    *value;
 
     i = 0;
     while (arg[i])
@@ -69,10 +69,10 @@ char    *extract_value(char *arg)
 
 int     export(char **args)
 {
-    int i;
-    char *variable;
-    char *value;
-    int invalid;//if the variable is invalid or not
+    int     i;
+    char    *variable;
+    char    *value;
+    int     invalid;//if the variable is invalid or not
 
     i = 0;
     invalid = 0;
@@ -86,7 +86,7 @@ int     export(char **args)
             free(variable);
             free(value);
         }
-        else //imptime o erro??
+        else
             invalid = 1;
         i++;
     }

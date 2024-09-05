@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:14:59 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:36 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:38:24 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    free_tokens(t_tokens token)
     }
     free(token.tokens[i]);
     token.tokens[i] = NULL;
-    free(token.tokens);//Libera o array que armazena os ponteiros para os tokens
+    free(token.tokens);
     token.tokens = NULL;
 }
 

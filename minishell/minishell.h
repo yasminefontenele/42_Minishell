@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 18:54:33 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:45:13 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct s_env
 	char				**env;
 	char				**sorted;
 	int					exit_status;
-	int					child_flag;
 }						t_env;
 
 typedef struct s_tokens
@@ -91,7 +90,7 @@ typedef struct s_separator
 
 
 /*
-													***** TO DO ******
+										***** TO DO ******
 example of the t_execution structure:
 command: echo "hello" > output.txt
 
@@ -118,10 +117,10 @@ typedef struct s_execution
 
 typedef struct s_data
 {
-	int			presence;
-	int			oldlen;
-	int			newlen;
-}				t_data;
+	int					oldlen;
+	int					newlen;
+	int					presence;
+}						t_data;
 
 t_env					g_env;
 
@@ -152,7 +151,6 @@ void    error_file(char *file);
 int		error_redirection(int file_type);
 void	error_no_such_file(char *command);
 void    error_command(char *command);
-int		error_redirections(int i, t_execution *execution);
 char    ft_stringjoin(char *str, char c);
 char	*extract_substring(char const *s, unsigned int start, size_t len);
 void    join_backslash(char **path);
@@ -181,7 +179,7 @@ char    **token_split(char *line, int nbr);
 int get_token_type(char *content, int len);
 void set_token_aux(int i, int *cmd, int *type);
 void set_tokens_type(int *type, char **content);
-int set_token(t_tokens token); //mudra para parsing
+int set_token(t_tokens token);
 int skip_sapace(char *line, int i);
 int	get_end(char *line, int i);
 int count_token(char *line);
@@ -213,7 +211,7 @@ int 		dollar_presence(char *str);
 char		*process_quotes(char *str);
 char		quotes_expand(char *content, int i);
 t_tokens	process_quotes_tokens(t_tokens tokens);
-void		exec_process_quotes(t_tokens *tokens);
+void		exec_process_quotes(t_tokens *tokens);//FINISH!!
 int			type_of_separator(int type_of, char **token);
 void		filler_stokens(char **cmds, t_tokens **token, int nbr);
 int			token_dollar_end(char *str, int i);

@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:25:30 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 14:57:20 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:12:38 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void    process_pipeline(char *line)
 {
-    int i;
-    int error;
+    int         i;
+    int         error;
     t_separator sep;
 
     i = 0;

@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:21:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 17:49:15 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:12:48 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ int	dollar_aux_config(t_tokens *token, int *i, t_data *data)
 
 t_tokens    dollar_config(t_tokens *token)
 {
-    int i;
-    t_data data;
+    int     i;
+    t_data  data;
 
     i = 0;
     data.oldlen = count(token->tokens);

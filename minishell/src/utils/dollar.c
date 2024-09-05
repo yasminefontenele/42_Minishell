@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 21:09:53 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:00 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:39:44 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char *set_dollar(char *str, int i)
     {
         if ((str[i] == ' ' || str[i] == '\t') && j == i + 1)//if the dollar sign is alone
             return (ft_strdup("$"));
-        else if ((str[i] == ' ' || str[i] == '\t'))//is is followed by a space ou tab
+        else if ((str[i] == ' ' || str[i] == '\t'))//iif is followed by a space ou tab
         {
             tmp = ft_substr(str, i, j - i);//get the substring
             dollar_handling(&tmp, 0);

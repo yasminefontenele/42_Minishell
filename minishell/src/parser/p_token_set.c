@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_token.c                                          :+:      :+:    :+:   */
+/*   p_token_set.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 13:56:13 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:16:21 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void filler_stokens(char **cmds, t_tokens **token, int nbr)
 //coordinates the token extraction process and grammar checking.
 void    tokenize_commands(char **cmds)
 {
-    int i;
-    int backslash;
-    int j;
-    t_tokens *token;
+    int         i;
+    int         backslash;
+    int			j;
+    t_tokens	*token;
 
     i = 0;
     j = 0;

@@ -6,13 +6,14 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:43:06 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:49:51 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:40:17 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-/*Combines consecutive arguments from a list (args), starting from a
+/*
+Combines consecutive arguments from a list (args), starting from a
 specific index, until a stopping condition is met (token_class).
 token_class[i] < 0 serves as a flag to the parser that the tokens in args
 are protected and should be matched with the previous token

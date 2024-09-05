@@ -6,14 +6,13 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:03:59 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:54 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:37:35 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-
-// Verifica se o token é um redirecionamento (>, >>, <, <<)
+//verifies if the token is a redirection (>, >>, <, <<)
 int syntax_redirections(t_tokens *tokens)
 {
     int i;
@@ -43,13 +42,13 @@ int syntax_redirections(t_tokens *tokens)
     return (1);
 }
 
-// Verifica se o token é vazio
+//verifies if the token is empty
 int syntax_grammar(char **commands, t_tokens *tokens)
 {
     int i;
 
     i = -1;
-    while (commands[++i])//Verifica se o token é vazio
+    while (commands[++i])
     {
         if (is_empty(commands[i]) == 1)
         {

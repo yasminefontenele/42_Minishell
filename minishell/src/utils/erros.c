@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 12:08:44 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:32 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:35:35 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,3 @@ void    error_command(char *command)
     ft_putstr_fd(RST_COLOR, 2);
 }
 
-
-/*
-* Se o file_type não é um dos tipos esperados (FILE, -FILE, HERE_DOC_END, -HERE_DOC_END),
-* ele gera um erro com a mensagem "No redirection File".
-
-* No contexto de redirecionamentos, o sinal de negativo (-) pode ser utilizado para distinguir
-* algum estado especial, como um arquivo protegido ou um erro durante o parsing.
-*/
-int error_redirection(int file_type)
-{
-    if(!(file_type == FILE || file_type == -FILE || file_type == HERE_DOC_END || file_type == -HERE_DOC_END))
-    {
-        ft_error("syntax error near unexpected token", 0);
-        return (1);
-    }
-    return (0);
-}

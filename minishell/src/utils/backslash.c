@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:57:57 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:49:31 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:40:42 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int count_backslash(char *line, int i)
     return (count);
 }
 
-//This function is used to check if the backslash is valid
+//Tcheck if the backslash is valid
 int valid_backslash(char **tokens)
 {
     int i;

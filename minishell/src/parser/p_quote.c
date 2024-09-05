@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quote.c                                            :+:      :+:    :+:   */
+/*   p_quote.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 08:59:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 11:37:12 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:41:42 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int dollar_presence(char *str)
 
 char *process_quotes(char *str)
 {
-    int i;
-    char *content;
-    char *tmp;
+    int     i;
+    char    *content;
+    char    *tmp;
 
     i = 0;
     content = ft_strdup("");
@@ -48,6 +48,7 @@ char *process_quotes(char *str)
     }
     return (content);
 }
+
 /*
 Processes content within double or single quotes,
 expanding variables as necessary.
@@ -95,7 +96,6 @@ t_tokens process_quotes_tokens(t_tokens tokens)
 ensures that each part of the command correctly processes variables and
 quotes before execution.
 */
-
 void exec_process_quotes(t_tokens *tokens)
 {
     int i;

@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:56:32 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:51:34 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:08:45 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int builtin_pwd(int fd)
 {
-    char *buffer;
-    size_t size;
+    char    *buffer;
+    size_t  size;
 
     size = MAX_PATH;
     buffer = malloc(sizeof(char) * size);

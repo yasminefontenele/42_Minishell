@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 08:48:49 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 08:48:55 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:12:14 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char    *find_env_value(char *str, int i)
 {
-    int i;
-    int name_len;
-    char *env_value;
+    int     i;
+    int     name_len;
+    char    *env_value;
 
     i = 0;
     env_value = NULL;

@@ -6,11 +6,9 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 08:50:14 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:16 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:39:16 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "../../minishell.h"
 
@@ -72,7 +70,7 @@ void env_init(char **env)
     if (g_env.env == NULL)
         ft_error("malloc failed", 1);
     i = -1;
-    g_env.env[++i] = ft_strdup("?=0");//o valor da variável ? armazena o status de saída do último comando executado (o valor de retorno)
+    g_env.env[++i] = ft_strdup("?=0");
     while (env[++i])
     {
         g_env.env[i] = ft_strdup(env[i - 1]);
@@ -87,8 +85,8 @@ void env_init(char **env)
 void append_to_env(char *variable, char *value, int size)
 {
     int i;
-    char	**updated_env;//new_env → updated_env
-	char	*new_env_var;//new_var → new_env_var
+    char	**updated_env;
+	char	*new_env_var;
 	char	*temp_str;
 
     i = 0;

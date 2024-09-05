@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 19:34:21 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:51:15 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:43:45 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int builtin_cd(char **path)
 {
-    int return_value;//return value of chdir
-    char *oldpwd;
-    char *newpwd;
+    int     return_value;//return value of chdir
+    char    *oldpwd;
+    char    *newpwd;
 
     oldpwd = builtin_pwd(1);
     if (path[0] == NULL)//if no argument is passed
@@ -27,7 +27,7 @@ int builtin_cd(char **path)
     return_value = chdir(path[0]);//change directory
     newpwd = builtin_pwd(1);
     if (return_value == -1)//if the directory does not exist
-        ft_error("cd: no such file or directory", 0);
+        ft_error("cd: no such file or directory", 1);
     else
     {
         env_update("OLDPWD", oldpwd);
@@ -40,8 +40,8 @@ int builtin_cd(char **path)
 
 void   no_arg_cd(char *oldpwd)
 {
-    int return_value;
-    char *newpwd;
+    int     return_value;
+    char    *newpwd;
 
     return_value = chdir("home/users/yfontene");
     newpwd = builtin_pwd(1);
