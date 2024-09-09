@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:06:17 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:05 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:58:14 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,24 @@ void env_update(char *env, char *new_value)
 
 //replaces the environment variable string,
 //preserving the name and changing only the value.
-void replace_value(int i, char *new_value, size_t len, char **arr)
+void replace_value(int i, char *new_value, int len, char **arr)
 {
     int j;
     int k;
     char *new_var;
     int new_len;
 
-    j = -1;
+    j = 0;
     new_len = ft_strlen(new_value);
-    new_var = malloc(sizeof(char) * (len + new_len + 2));
+    new_var = malloc(sizeof(char) * (len + new_len + 1));
     if (new_var == NULL)
         ft_error("malloc failed", 1);
-    while (++i < len)
-        new_var[i] = arr[i][j];
-    k = -1;
-    while (++k < new_len)
+    while (j++ < len)
+        new_var[j] = arr[i][j];
+    k = 0;
+    while (k++ < new_len)
     {
-        new_var[i++] = new_value[k];
+        new_var[j] = new_value[k];
         j++;
     }
     new_var[j] = '\0';

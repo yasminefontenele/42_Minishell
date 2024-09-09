@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 21:09:53 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/05 19:39:44 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:53:17 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ char *set_dollar(char *str, int i)
         else if ((str[i] == ' ' || str[i] == '\t'))//iif is followed by a space ou tab
         {
             tmp = ft_substr(str, i, j - i);//get the substring
-            dollar_handling(&tmp, 0);
+            dollar_replace(&tmp, 0);
             return (tmp);
         }
     }
     if (str[j - 1] == '$')
         return (ft_strdup("$"));
     tmp = ft_substr(str, i, j - i);
-    dollar_handling(&tmp, 0);
+    dollar_replace(&tmp, 0);
     return (tmp);
 }
 

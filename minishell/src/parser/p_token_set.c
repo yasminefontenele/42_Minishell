@@ -6,13 +6,13 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 19:16:21 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:04:25 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int		type_of_separator(int type_of, char **token)
+void		type_of_separator(int *type_of, char **token)
 {
     int i;
 

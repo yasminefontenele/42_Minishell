@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:01:18 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:44 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/07 11:00:15 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_separator position_separator(char *line, char separator)
     count = 0;
     quote = quote_init();
     sep.separator_index = NULL;
-    sep.nbr_separator = count_separators(line, separator);
+    sep.nbr_separator = count_separator(line, separator);
     sep.separator_index = malloc(sizeof(int) * (sep.nbr_separator + 1));
     if (!sep.separator_index)
         ft_error("malloc failed", 1);

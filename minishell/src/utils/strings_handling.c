@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:31:24 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 14:39:19 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/08 20:47:58 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,49 +19,21 @@ char ft_stringjoin(char *str, char c)
     int len;
     char *new_string;
 
-    i = -1;
+    i = 0;
     len = ft_strlen(str) + 1;
     if (c != '\0')
         len++;
     new_string = malloc(sizeof(char) * len);
-    if (new_string == NULL)
-        return (NULL);
-    while (str[++i])
+    while (str[i])
+    {
         new_string[i] = str[i];
+        i++;
+    }
     if (c != '\0')
         new_string[i++] = c;
     new_string[i] = '\0';
     free(str);
-    return (new_string);
-}
-
-void    join_backslash(char **path)
-{
-    int i;
-    char    *tmp;
-    
-    i = -1;
-    if (path == NULL)
-        return ;
-    while (path [++i])
-    {
-        tmp = ft_strjoin(path[i], "/");
-        free(path[i]);
-        path[i] = tmp;
-    }
-}
-
-static int extract_substring(char **content, char *line, int *separatorI, int i, int j, int len)
-{
-    content[i] = ft_substr(line, j, len);
-    if (!content[i])
-    {
-        while (i--)
-            free(content[i]);
-        free(content);
-        return -1;
-    }
-    return 0;
+    return (*new_string);
 }
 
 char **separator_split(char *line, int *separatorI, int nbr_separator)
@@ -109,6 +81,23 @@ int	str_isdigit(char *str)
         i++;
 	}	
 	return (1);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			break ;
+	}
+	return (s1[i] - s2[i]);
 }
 
 

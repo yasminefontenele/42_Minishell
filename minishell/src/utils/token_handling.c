@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:06:55 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:50:58 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:00:06 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char    **token_split(char *line, int nbr)
         ft_error("malloc failed", 1);
     token[nbr] = NULL;
     while (++i < nbr)
-        token[i] = get_token(line, i);
+        token[i] = parse_next_token(line, i);
     return (token);
 }
 
@@ -86,14 +86,14 @@ void set_tokens_type(int *type, char **content)
 }
 
 //Initialize and define token types
-int set_token(t_tokens token)
+int     *set_token(t_tokens token)
 {
-    int type;
+    int     *type;
 
     type = malloc(sizeof(int) * (token.nbr + 1));
-    if (!type)
+    if (type == NULL)
         ft_error("malloc failed in set token", 1);
-    set_separator_type(type, token.tokens);
+    type_of_separator(type, token.tokens);
     set_tokens_type(type, token.tokens);
     return (type);
 }

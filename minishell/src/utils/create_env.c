@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:08:35 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 08:49:55 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:41:41 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void new_var(char *var, char *value)
     new_value = format_var(var, value);
     new_env[i] = ft_strdup(new_value);
     new_env[i + 1] = NULL;
-    free_arr(g_env.env);//free the old environment
-    free_arr(g_env.sorted);//free the old environment
+    free_str_array(g_env.env);//free the old environment
+    free_str_array(g_env.sorted);//free the old environment
     g_env.env = new_env;//assign the new environment
-    sort_env();
+    sort_array();
 }
 
 //This function is used to update the environment variable
@@ -67,7 +67,7 @@ void update_env(char *var, char *value)
     {
         if (ft_strncmp(var, g_env.env[i], var_len) == 0)//if the variable already exists
         {
-            set_env(var, value);
+            env_update(var, value);
             return ;
         }
     }

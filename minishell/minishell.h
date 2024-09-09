@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/05 19:45:13 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:07:27 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,78 +124,62 @@ typedef struct s_data
 
 t_env					g_env;
 
-//BUILTINS
-int		builtin_cd(char **path);
-void	no_arg_cd(char *oldpwd);
-int		builtin_echo(char **args, int *type);
-int		contains_equal(char *str);
-int		builtin_env(void);
-int     builtin_exit(char **args, int child_process, int count);
-void    print_export(void);
-char    *extract_var(char *arg);
-char    *extract_value(char *arg);
-int     export(char **args);
-int     builtin_export(char **args, int *type);
-int		builtin_pwd(int fd);
-int		find_env_index(char *var);
-int		find_env_index(char *var);
-int		builtin_unset(char **args);
-
 //UTILS
-int     absolute_value(int nb);
-int     count(char **str);
-int		max_of(int i, int j);
-int		ft_error(char *description, int exit_code);
-void    free_str_array(char **arr);
-void    error_file(char *file);
-int		error_redirection(int file_type);
-void	error_no_such_file(char *command);
-void    error_command(char *command);
-char    ft_stringjoin(char *str, char c);
-char	*extract_substring(char const *s, unsigned int start, size_t len);
-void    join_backslash(char **path);
-char	*format_var(char *var, char *value);
-void	new_var(char *var, char *value);
-void	update_env(char *var, char *value);
-void	append_to_env(char *variable, char *value, int size);
-char    *set_dollar(char *str, int i);
-int     len_dollar(char *str, int i);
-void    dup_array(void);
-void    sort_array(void);
-void    env_init(char **env);
-int     count_backslash(char *line, int i);
-int     valid_backslash(char **tokens);
-void	free_tokens(t_tokens token);
-void	free_dollar(char **original, char **replacement);
-int		syntax_redirections(t_tokens *tokens);
-int		syntax_grammar(char **commands, t_tokens *tokens);
-char	*is_builtin(char *command);
-int		count_separator(char *line, char separator);
-int		str_isdigit(char *str);
-t_quote	quote_value(char type_quote, t_quote status_quote);
+int     	absolute_value(int nb);
+int     	count(char **str);
+int			max_of(int i, int j);
+int			ft_error(char *description, int exit_code);
+void    	free_str_array(char **arr);
+void    	error_file(char *file);
+int			error_redirection(int file_type);
+void		error_no_such_file(char *command);
+void    	error_command(char *command);
+char    	ft_stringjoin(char *str, char c);
+char		*extract_substring(char const *s, unsigned int start, size_t len);
+void		join_backslash(char **path);
+char		*format_var(char *var, char *value);
+void		new_var(char *var, char *value);
+void		update_env(char *var, char *value);
+void		append_to_env(char *variable, char *value, int size);
+char    	*set_dollar(char *str, int i);
+int     	len_dollar(char *str, int i);
+void    	dup_array(void);
+void    	sort_array(void);
+void    	env_init(char **env);
+int     	count_backslash(char *line, int i);
+int			valid_backslash(char **tokens);
+void		free_tokens(t_tokens token);
+void		free_dollar(char **original, char **replacement);
+int			syntax_redirections(t_tokens *tokens);
+int			syntax_grammar(char **commands, t_tokens *tokens);
+int			ft_strcmp(const char *s1, const char *s2);
+char		*is_builtin(char *command);
+int			count_separator(char *line, char separator);
+int			str_isdigit(char *str);
+t_quote		quote_value(char type_quote, t_quote status_quote);
 t_separator position_separator(char *line, char separator);
-char **separator_split(char *line, int *separatorI, int nbr_separator);
-char    **token_split(char *line, int nbr);
-int get_token_type(char *content, int len);
-void set_token_aux(int i, int *cmd, int *type);
-void set_tokens_type(int *type, char **content);
-int set_token(t_tokens token);
-int skip_sapace(char *line, int i);
-int	get_end(char *line, int i);
-int count_token(char *line);
-int is_empty(char *str);
-int is_protected(int type);
-int is_cmd(int type);
-int is_arg(int type);
-int is_redirection(int type);
-void env_update(char *env, char *new_value);
-void replace_value(int i, char *new_value, size_t len, char **arr);
-char	*assemble_argument(char **args, int *token_class, int i);
-int get_next_positive(char **args, int *token_class, int i);
-char **join_args(char **args, int *token_class);
-char **arg_add(char *arg, char **arr);
-void	print_invalid_identifier_error(char **args);
-int	is_invalid_identifier(char *arg);
+char 		**separator_split(char *line, int *separatorI, int nbr_separator);
+char    	**token_split(char *line, int nbr);
+int 		get_token_type(char *content, int len);
+void 		set_token_aux(int i, int *cmd, int *type);
+void 		set_tokens_type(int *type, char **content);
+int 		*set_token(t_tokens token);
+int 		skip_sapace(char *line, int i);
+int			get_end(char *line, int i);
+int 		count_token(char *line);
+int 		is_empty(char *str);
+int 		is_protected(int type);
+int 		is_cmd(int type);
+int 		is_arg(int type);
+int 		is_redirection(int type);
+void 		env_update(char *env, char *new_value);
+void 		replace_value(int i, char *new_value, int len, char **arr);
+char		*assemble_argument(char **args, int *token_class, int i);
+int 		get_next_positive(char **args, int *token_class, int i);
+char 		**join_args(char **args, int *token_class);
+char 		**arg_add(char *arg, char **arr);
+void		print_invalid_identifier_error(char **args);
+int			is_invalid_identifier(char *arg);
 
 //PARSING
 t_quote		quote_init(void);
@@ -212,8 +196,9 @@ char		*process_quotes(char *str);
 char		quotes_expand(char *content, int i);
 t_tokens	process_quotes_tokens(t_tokens tokens);
 void		exec_process_quotes(t_tokens *tokens);//FINISH!!
-int			type_of_separator(int type_of, char **token);
+void		type_of_separator(int *type_of, char **token);
 void		filler_stokens(char **cmds, t_tokens **token, int nbr);
+void		tokenize_commands(char **cmds);
 int			token_dollar_end(char *str, int i);
 int			token_word_end(char *str, int i);
 int			token_quotes_end(char *str, int i);

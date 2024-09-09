@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:43:06 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/05 19:40:17 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:36:40 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char **arg_add(char *arg, char **arr)
     if (new_arr == NULL)
         ft_error("malloc failed", 1);
     while(arr && arr[++i])
-        new_arr[i] = ft(strdup(arr[i]));
+        new_arr[i] = ft_strdup(arr[i]);
     new_arr[i++] = ft_strdup(arg);
     new_arr[i] = NULL;
     if (arr)
