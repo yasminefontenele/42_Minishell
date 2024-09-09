@@ -6,7 +6,7 @@
 #    By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 11:06:25 by yasmine           #+#    #+#              #
-#    Updated: 2024/09/07 10:27:57 by yfontene         ###   ########.fr        #
+#    Updated: 2024/09/09 14:02:56 by yfontene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ UTILS_SRCS=				./src/utils/backslash.c\
 						./src/utils/separator_handling.c\
 						./src/utils/strings_handling.c\
 						./src/utils/syntax_check.c\
-						./src/utils/token_handling\
+						./src/utils/token_handling.c\
 						./src/utils/token_utils.c\
 						./src/utils/type_bool.c\
 
@@ -59,10 +59,10 @@ SRCS=					$(UTILS_SRCS)\
 
 OBJS=					$(SRCS:.c=.o)
 
-FLAG=					-lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include		
+#FLAG=					-lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include
 		
 $(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) $(FLAG) $(SRCS) $(HEADER) $(LIBFT) -o $(NAME)
+			@$(CC) $(CFLAGS) $(SRCS) $(HEADER) -o $(NAME) $(LIBFT)
 			@echo " $(MAGENTA)																												"
 			@echo " 	    ▒                                                                                                ▒              "
 			@echo "      ░▒▒░                                                                                              ▓▒▒              "

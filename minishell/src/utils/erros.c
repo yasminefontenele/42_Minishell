@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 12:08:44 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/05 19:35:35 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:46:28 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,17 @@ void    error_command(char *command)
     ft_putstr_fd(command, 2);
     ft_putstr_fd(": command not found", 2);
     ft_putstr_fd(RST_COLOR, 2);
+}
+
+int			error_redirection(int file_type)
+{
+    if (!(file_type == FILE || file_type == -FILE
+			|| file_type == HERE_DOC_END
+			|| file_type == -HERE_DOC_END))
+	{
+		ft_error("No redirection File", 0);
+		return (1);
+	}
+	return (0);
 }
 

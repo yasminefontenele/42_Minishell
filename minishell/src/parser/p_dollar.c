@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:21:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 19:12:48 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:18:59 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void    dollar_replace(char **token, int i)
     free(*token);
     *token = NULL;
     *token = find_env_value(str, i);
-    if (*token = NULL)
-        ft_error("dollar replace value", 1);
+    if (*token == NULL)
+        ft_error("error in dollar replace value", 1);
 }
 
-char    dollar_spaces_split(char **old, int i)
+char    **dollar_spaces_split(char **old, int i)
 {
     int j;
     int k;
@@ -36,7 +36,7 @@ char    dollar_spaces_split(char **old, int i)
     k = 0;
     content = ft_split(old[i], ' ');
     new = malloc(sizeof(char *) * (count(old) + count(content)));
-    while (++j < i)
+    while (j++ < i)
         new[j] = ft_strdup(old[j]);
     while (content[k++])
     {
@@ -44,7 +44,7 @@ char    dollar_spaces_split(char **old, int i)
         j++;
     }
     k = i;
-    while (old[k++])
+    while (old[++k])
     {
         new[j] = ft_strdup(old[k]);
         j++;
@@ -58,7 +58,7 @@ void arg_type(t_tokens *token, int oldsize, int newsize, int i)
 {
     int j;
     int k;
-    char *new_type;
+    int *new_type;
 
     j = 0;
     k = 0;
@@ -74,7 +74,7 @@ void arg_type(t_tokens *token, int oldsize, int newsize, int i)
 		j++;
 	}
 	k = i;
-	while (k++ < oldsize)
+	while (++k < oldsize)
 	{
 		new_type[j] = token->type[k];
 		j++;

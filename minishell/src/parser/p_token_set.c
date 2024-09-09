@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/08 21:04:25 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:38:20 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void		type_of_separator(int *type_of, char **token)
     while (token[i])
     {
         if (token[i][0] != ' ' && token[i][0] != '\t')
-            type_of = -1;
+            type_of[i] = -1;
         else
-            type_of = 1;
+            type_of[i] = 1;
         i++;
     }
 }

@@ -6,13 +6,13 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:48:35 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/04 18:43:58 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:36:30 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int skip_sapace(char *line, int i)
+int skip_space(char *line, int i)
 {
     while (line[i])
 	{
@@ -29,19 +29,17 @@ int	get_end(char *line, int i)
 {
 	if ((line[i] == '>' || line[i] == '<')
 		&& count_backslash(line, i) % 2 == 0)
-        i = token_redir(line, i);
-    else if (line[i] == '|' && count_backslash(line, i) % 2 == 0)
-        i = token_pipe(line, i);
+        i = token_redir_end(line, i);
     else if (line[i] == '$' && count_backslash(line, i) % 2 == 0)
-        i = token_dollar(line, i);
+        i = token_dollar_end(line, i);
     else if (line[i] == '\'' || line[i] == '\"')
     {
-        i = token_quote(line, i);
+        i = token_quotes_end(line, i);
         if (i == -1)
             ft_error("syntax error, unclosed quotes.", 0);
     }
     else
-        i = token_word(line, i);
+        i = token_word_end(line, i);
     return (i);
 }
 
@@ -55,7 +53,7 @@ int count_token(char *line)
     while (line[i])
     {
         if (line[i])
-            i = skip_sapace(line, i);
+            i = skip_space(line, i);
         if (line[i])
         {
             i = get_end(line, i);

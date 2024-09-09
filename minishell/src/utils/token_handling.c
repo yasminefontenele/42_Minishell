@@ -6,11 +6,12 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:06:55 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/08 21:00:06 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 11:51:31 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+#include "../../libft/libft.h"
 
 //Split the string line into nb tokens and store these tokens in a string array.
 char    **token_split(char *line, int nbr)

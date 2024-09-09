@@ -6,14 +6,14 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 11:31:24 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/08 20:47:58 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:32:09 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
 //add a character to a string
-char ft_stringjoin(char *str, char c)
+char *ft_stringjoin(char *str, char c)
 {
     int i;
     int len;
@@ -33,7 +33,7 @@ char ft_stringjoin(char *str, char c)
         new_string[i++] = c;
     new_string[i] = '\0';
     free(str);
-    return (*new_string);
+    return (new_string);
 }
 
 char **separator_split(char *line, int *separatorI, int nbr_separator)

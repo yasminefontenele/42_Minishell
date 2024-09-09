@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:11:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 18:44:42 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:37:19 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char *parse_next_token(char *line, int reset)
         initial_offset = 0;
     while (line[current_pos])
     {
-        current_pos = skip_spaces(line, current_pos);
+        current_pos = skip_space(line, current_pos);
         if (line[current_pos])
         {
             end = get_end(line, current_pos);

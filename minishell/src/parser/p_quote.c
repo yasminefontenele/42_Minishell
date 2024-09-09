@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 08:59:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/05 19:41:42 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:33:58 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char *process_quotes(char *str)
         else
         {
             tmp = set_dollar(str, i);
-            content = ft_stringjoin(content, tmp);
+            content = ft_stringjoin(content, tmp[i]);
             i += len_dollar(str, i) - 1;
         }
         i++;
@@ -53,15 +53,15 @@ char *process_quotes(char *str)
 Processes content within double or single quotes,
 expanding variables as necessary.
 */
-char quotes_expand(char *content, int i)
+char *quotes_expand(char *content, int i)
 {
     int nbr_of_dollars;
     char *tmp;
 
-    tmp = ft_substr(content, i + 1, ft_srlen(content) - i - 2);
+    tmp = ft_substr(content, i + 1, ft_strlen(content) - i - 2);
     nbr_of_dollars = dollar_presence(tmp);
     if (content[i] == '\"' && nbr_of_dollars != 0)
-        tmp = procesc_quotes(tmp);
+        tmp = process_quotes(tmp);
     return (tmp);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/08 21:07:27 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:02:37 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ typedef struct s_env
 	int					exit_status;
 }						t_env;
 
+
+
 typedef struct s_tokens
 {
 	int					nbr;
@@ -88,6 +90,7 @@ typedef struct s_separator
 	char				**content;
 }						t_separator;
 
+t_env					g_env;//global variable to store the environment variables and the exit status of the last command executed.
 
 /*
 										***** TO DO ******
@@ -122,10 +125,8 @@ typedef struct s_data
 	int					presence;
 }						t_data;
 
-t_env					g_env;
-
 //UTILS
-int     	absolute_value(int nb);
+int			absolute_value(int nb);
 int     	count(char **str);
 int			max_of(int i, int j);
 int			ft_error(char *description, int exit_code);
@@ -134,7 +135,7 @@ void    	error_file(char *file);
 int			error_redirection(int file_type);
 void		error_no_such_file(char *command);
 void    	error_command(char *command);
-char    	ft_stringjoin(char *str, char c);
+char    	*ft_stringjoin(char *str, char c);
 char		*extract_substring(char const *s, unsigned int start, size_t len);
 void		join_backslash(char **path);
 char		*format_var(char *var, char *value);
@@ -164,7 +165,7 @@ int 		get_token_type(char *content, int len);
 void 		set_token_aux(int i, int *cmd, int *type);
 void 		set_tokens_type(int *type, char **content);
 int 		*set_token(t_tokens token);
-int 		skip_sapace(char *line, int i);
+int 		skip_space(char *line, int i);
 int			get_end(char *line, int i);
 int 		count_token(char *line);
 int 		is_empty(char *str);
@@ -187,13 +188,13 @@ char    	*find_env_value(char *str, int i);
 void    	process_pipeline(char *line);
 void    	process_command_line(char *line);
 void    	dollar_replace(char **token, int i);
-char    	dollar_spaces_split(char **old, int i);
+char    	**dollar_spaces_split(char **old, int i);
 void    	arg_type(t_tokens *token, int oldsize, int newsize, int i);
 int			dollar_aux_config(t_tokens *token, int *i, t_data *data);
 t_tokens    dollar_config(t_tokens *token);
 int 		dollar_presence(char *str);
 char		*process_quotes(char *str);
-char		quotes_expand(char *content, int i);
+char		*quotes_expand(char *content, int i);
 t_tokens	process_quotes_tokens(t_tokens tokens);
 void		exec_process_quotes(t_tokens *tokens);//FINISH!!
 void		type_of_separator(int *type_of, char **token);
