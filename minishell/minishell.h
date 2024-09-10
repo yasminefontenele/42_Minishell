@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 19:48:13 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/09 15:02:37 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:38:53 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define ERROR 10//Error in the sintaxe
 # define PROTECTED_DOLLAR 11//protection of strings of environment variables or file names(ex.: $HOME)
 # define PROTECTED_QUOTE 12// protection of strings or arguments that are enclosed in quotes(ex.:"Hello World")
-# define SKIPED	13//Skip current token and next token(ex.: '&&' ou '||')
+# define SKIPED_COMMAND	13//Skip current token and next token(ex.: '&&' ou '||')
 # define HERE_DOC 14//Input redirection, ex.: '<<'
 # define HERE_DOC_END 15//ffinal of heredoc
 

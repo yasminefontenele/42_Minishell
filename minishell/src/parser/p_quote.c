@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 08:59:10 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/09 14:33:58 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 22:26:21 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char *quotes_expand(char *content, int i)
 
 /*
 Iterates over the tokens (parts of the command separated by spaces or
-other delimiters) and applies procesc_quotes to each token that contains quotes.
+other delimiters) and applies procesc_quotes to each token that contains quotes
 */
 t_tokens process_quotes_tokens(t_tokens tokens)
 {

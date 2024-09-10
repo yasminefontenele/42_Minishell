@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:25:30 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/04 19:12:38 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/09 22:25:59 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	process_command_line(char *line)
     }
     semicolon_info = position_separator(line, ';');
     if (semicolon_info.nbr_separator == 0)//if there is no semicolon, the line is processed as a pipeline
+        process_pipeline(line);
+    else if (semicolon_info.nbr_separator == 1)//if there is a semicolon, the line is split into two commands
     {
         semicolon_info.content = ft_split(line, '\0');
         process_pipeline(semicolon_info.content[0]);

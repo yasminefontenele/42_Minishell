@@ -6,7 +6,7 @@
 #    By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 11:06:25 by yasmine           #+#    #+#              #
-#    Updated: 2024/09/09 14:02:56 by yfontene         ###   ########.fr        #
+#    Updated: 2024/09/09 22:25:33 by yfontene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,29 +59,30 @@ SRCS=					$(UTILS_SRCS)\
 
 OBJS=					$(SRCS:.c=.o)
 
+#Flag to link the readline library, used to provide line editing and command history functionality in command line programs.
 #FLAG=					-lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include
 		
 $(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) $(SRCS) $(HEADER) -o $(NAME) $(LIBFT)
-			@echo " $(MAGENTA)																												"
-			@echo " 	    ▒                                                                                                ▒              "
-			@echo "      ░▒▒░                                                                                              ▓▒▒              "
-			@echo "     ░▒▒▒▒░                                                                                           ▒▒▒▒▒              "
-			@echo "    ▒▒▒▒▒▒▒                                                                                          ▒▒▒▒▒▒░      		"
-			@echo "  ░▒▒▒▒▒▒▒▒  ▒▒     ████     ▒███   ██▒             ██▒          ███                  ██   ██░     ▒▒▒▒▒▒▒▒░  ▓░  		"
-			@echo " ░▒▒▒▒▒▒▒▒▒░░▒▒░    ████▒    ████                                ███                  ██   ██░    ▓▒▒▒▒▒▒▒▓▒ ▒▒▒			"
-			@echo " ▒▒▒▒▒▒▒░▒▒▒▒▒▒▓    █████   ██░██   ██░  ████████   ██░ ░██████  ████████   ░██████   ██   ██░   ░▒▒▒▒▒▒░░▒▒▒▒▒▒▒ 		"
-			@echo " ▒▒▒▒▒▒░░░▒▒▒▒▒▓    ███▒██  ██ ██   ██░  ███   ██░  ██░ ███░     ███   ██▓ ░██   ▓██  ██   ██░   ▒▒▒▒▒▒▒░░░▒▒▒▒▒▒ 		"
-			@echo " ▓▒▒▒░▒░░░░▒▒▒▒░    ███ ██ ██  ██   ██░  ██░   ██░  ██░  ░█████  ███   ██▓ ▒████████  ██   ██░    ▒▒▒▒░▒░░░░▒▒▒▒  		"
-			@echo "  ▒▒▒░░░░░░░▒▒░     ███ ░███▒  ██   ██░  ██░   ██░  ██░ ░    ██  ███   ██▓  ██▒       ██   ██░     ▒▒▒░░░░░░░▒▒          "
-			@echo "    ▒▒░░ ░░▒░       ███  ███   ██   ██░  ██░   ██░  ██░ ██████░  ███   ██▓   ██████░  ██   ██░      ░▒░░░ ░░▒░    $(END)	"
-			@echo " $(CYAN)                    			Made by yfontene and josmacha											 $(END)	"
-
+			@$(CC) $(CFLAGS) $(HEADER) -o $(NAME) $(LIBFT)
+			@echo " $(MAGENTA)		                                                                   "
+			@echo "                                                               ((                   "
+			@echo "                                                              ((((                  "
+			@echo "                                                            ((((*((                 "
+			@echo "                                                          ((((****(    (            "
+			@echo "  __  __   _           _         _              _   _     ((((******((  (((         " 
+			@echo " |  \/  | (_)         (_)       | |            | | | |   (((******.**(((*/((        "
+			@echo " | \  / |  _   _ __    _   ___  | |__     ___  | | | |   ((******....*****((        "
+			@echo " | |\/| | | | | '_ \  | | / __| | '_ \   / _ \ | | | |   ((***........****(         "
+			@echo " | |  | | | | | | | | | | \__ \ | | | | |  __/ | | | |     (**...    ..*((          "
+			@echo " |_|  |_| |_| |_| |_| |_| |___/ |_| |_|  \___| |_| |_|        (*.   .(.       $(END)"
+			@echo "                                                                                    "
+			@echo " $(CYAN)                  Made by yfontene and emencova						 $(END)"
+			@echo "                                                                                    "
+ 
 all: $(NAME)
-		
+
 .c.o:
-			@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-			@echo "Compiling $<."
+			@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) > /dev/null
 
 $(LIBFT): force
 	@$(MAKE) -C libft
