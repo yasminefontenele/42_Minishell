@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/15 14:03:52 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:45:28 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void filler_stokens(char **cmds, t_tokens **token, int nbr)
         (*token)[i].nbr = count_token(cmds[i]);
         (*token)[i].type = set_token((*token)[i]);
         (*token)[i].tokens = token_split(cmds[i], (*token)[i].nbr);
-        (*token)[i] = dollar_config((*token) +  i);
+        (*token)[i] = dollar_config(*token +  i);
     }
 }
 //coordinates the token extraction process and grammar checking.
@@ -50,24 +50,22 @@ void    tokenize_commands(char **cmds)
     t_tokens	*token;
 
     i = 0;
-    j = 0;
-    backslash = valid_backslash(cmds);
+    backslash = 1;
     while (cmds[i])
         i++;
+    j = i;
     token = malloc(sizeof(t_tokens) * i);
-    if (!token)
-        ft_error("Malloc failed in tokenize_commands", 1);
-    filler_stokens(cmds, &token, i);
+    filler_stokens(cmds, &token, j);
+    backslash = valid_backslash(cmds);
     if (backslash == 0)
         ft_error("Invalid backslash", 1);
     if (syntax_grammar(cmds, token) == 1)
         exec_process_quotes(token);
-    i = 0;
+    i = -1;
     while (i < j)
     {
         free_tokens(token[i]);
         free(token[i].type);
-        i++;
     }
     free(token);
 }
