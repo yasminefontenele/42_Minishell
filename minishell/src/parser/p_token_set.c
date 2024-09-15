@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/15 14:45:28 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:57:10 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void filler_stokens(char **cmds, t_tokens **token, int nbr)
         (*token)[i].type = set_token((*token)[i]);
         (*token)[i].tokens = token_split(cmds[i], (*token)[i].nbr);
         (*token)[i] = dollar_config(*token +  i);
+        i++;
     }
 }
 //coordinates the token extraction process and grammar checking.
