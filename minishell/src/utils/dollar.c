@@ -23,7 +23,7 @@ char *set_dollar(char *str, int i)
     {
         if ((str[i] == ' ' || str[i] == '\t') && j == i + 1)//if the dollar sign is alone
             return (ft_strdup("$"));
-        else if ((str[i] == ' ' || str[i] == '\t'))//iif is followed by a space ou tab
+        else if ((str[j] == ' ' || str[j] == '\t'))//iif is followed by a space ou tab
         {
             tmp = ft_substr(str, i, j - i);//get the substring
             dollar_replace(&tmp, 0);

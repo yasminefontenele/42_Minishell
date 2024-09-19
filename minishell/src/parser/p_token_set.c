@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:47:09 by yfontene          #+#    #+#             */
-/*   Updated: 2024/09/15 14:57:10 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:58:52 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void filler_stokens(char **cmds, t_tokens **token, int nbr)
         i++;
     }
 }
+
 //coordinates the token extraction process and grammar checking.
 void    tokenize_commands(char **cmds)
 {

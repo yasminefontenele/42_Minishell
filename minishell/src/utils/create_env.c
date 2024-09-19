@@ -25,7 +25,7 @@ char	*format_var(char *var, char *value)
         return (NULL);
     while (var[++i])
         new_var[i] = var[i];
-    new_var[i] = '=';
+    new_var[i++] = '=';
     j = -1;
     while (value[++j])
         new_var[i++] = value[j];
@@ -45,10 +45,11 @@ void new_var(char *var, char *value)
     size = count(g_env.env);
     new_env = malloc(sizeof(char *) * (size + 2));
     while(g_env.env[++i])
-        new_env[i] = g_env.env[i];
+        new_env[i] = ft_strdup(g_env.env[i]);
     new_value = format_var(var, value);
     new_env[i] = ft_strdup(new_value);
     new_env[i + 1] = NULL;
+    free(new_value);
     free_str_array(g_env.env);//free the old environment
     free_str_array(g_env.sorted);//free the old environment
     g_env.env = new_env;//assign the new environment

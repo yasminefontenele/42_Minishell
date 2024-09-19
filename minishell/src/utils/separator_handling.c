@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:01:18 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/07 11:00:15 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/15 15:10:19 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ t_quote quote_value(char type_quote, t_quote status_quote)
         else
             quote.double_quote = true;
     }
-    else if (status_quote.double_quote == true && type_quote == 34)
+    else if ((status_quote.double_quote == true) && (type_quote == 34))
         quote.double_quote = false;
-    else if (status_quote.single_quote == true && type_quote == 39)
+    else if ((status_quote.single_quote == true) && (type_quote == 39))
         quote.single_quote = false;
     return (quote);
 }
@@ -68,20 +68,20 @@ t_separator position_separator(char *line, char separator)
     t_separator sep;
 
     i = -1;
-    count = 0;
+    count = -1;
     quote = quote_init();
     sep.separator_index = NULL;
     sep.nbr_separator = count_separator(line, separator);
-    sep.separator_index = malloc(sizeof(int) * (sep.nbr_separator + 1));
-    if (!sep.separator_index)
-        ft_error("malloc failed", 1);
+    sep.separator_index = malloc(sizeof(int) * (sep.nbr_separator));
+    if (sep.separator_index == NULL)
+	ft_error(NULL, 1);
     while (line[++i])
     {
         if ((line[i] == 34 || line[i] == 39) && (count_backslash(line, i) % 2 == 0))
             quote = quote_value(line[i], quote);
         else if (line[i] == separator && (count_backslash(line, i) % 2 == 0))
-            if (!quote.single_quote && !quote.double_quote)
-                sep.separator_index[count++] = i;
+            if (!quote.single_quote && !quote.double_quote && count + 1 < sep.nbr_separator)
+                sep.separator_index[++count] = i;
     }
     return (sep);
 }

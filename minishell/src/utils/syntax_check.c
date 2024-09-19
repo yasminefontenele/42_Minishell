@@ -6,7 +6,7 @@
 /*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:03:59 by yasmine           #+#    #+#             */
-/*   Updated: 2024/09/05 19:37:35 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/09/15 15:13:22 by yfontene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int syntax_redirections(t_tokens *tokens)
         j = -1;
         while (tokens[i].tokens[++j])
         {
-            if (is_redirection(tokens[i].type[j] != 0))
+            if (is_redirection(tokens[i].type[j]) != 0)
             {
                 if (tokens[i].tokens[j + 1])
                 {
