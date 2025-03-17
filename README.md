@@ -52,7 +52,7 @@ This project is part of the curriculum at [42 School](https://www.42.fr/), aimin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/minishell.git
+   git clone https://github.com/yasminefontenele/42_Minishell.git
    cd minishell
 2. Compile the project using the provided Makefile:
    ```bash
