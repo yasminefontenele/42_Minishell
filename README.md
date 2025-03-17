@@ -15,7 +15,7 @@ Welcome to **Minishell**, a minimalist Unix-like shell implementation written in
 5. [Built-in Commands](#built-in-commands)
 6. [Signal Handling](#signal-handling)
 7. [Testing](#testing)
-8. 
+   
 ---
 
 ## Introduction
